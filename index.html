@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ 
+
+ 
+    <title>Smart Waste Segregator</title>
+   
+  </head>
+<body> 
+
+
+
+
+<div id = "heading">
+<h1> Smart Waste Segregator </h1>
+</div>
+<div id = "bin">Dry Bin </div>
+<div id = "centerbin1">
+   <div class="bin1">
+      <div class="fill1"></div>
+      <span class="text1">0%</span>
+    </div> 
+</div>
+<div id = "bin">Wet Bin</div>
+<div id = "centerbin1">
+   <div class="bin2">
+      <div class="fill2"></div>
+      <span class="text2">0%</span>
+    </div> 
+</div>
+<div id = "bin">Metal Bin</div>
+<div id = "centerbin1">
+   <div class="bin3">
+      <div class="fill3"></div>
+      <span class="text3">0%</span>
+    </div> 
+</div>
+<div id = "clock"></div>
+<div id = "centerbutton">
+  <button id ="button">Update Data</button>
+</div>
+</body>
+<script type = "module">
+var dry = 0;
+var wet = 0;
+var metal = 0;
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBZ9FRLe_5UK6wnLXsMrhwcyn6vxZ700ck",
+    authDomain: "wastesegregator-ea8d2.firebaseapp.com",
+    databaseURL: "https://wastesegregator-ea8d2-default-rtdb.firebaseio.com",
+    projectId: "wastesegregator-ea8d2",
+    storageBucket: "wastesegregator-ea8d2.appspot.com",
+    messagingSenderId: "650160084673",
+    appId: "1:650160084673:web:56c3bd77c45ecc4afc2640",
+    measurementId: "G-TKTLEV6V1Z"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+ import{getDatabase, ref, set, child, update, remove,get}
+ from  "https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js";
+ const db = getDatabase();
+
+ function SelectData()
+ {
+  const dbref = ref(db);
+  get(child(dbref,"Waste_level/Dry")).then(snapshot=>{
+  dry = snapshot.val();
+  console.log(dry);
+   
+  });
+   get(child(dbref,"Waste_level/Metal")).then(snapshot=>{
+wet = snapshot.val();
+  console.log(snapshot.val());
+
+  });
+    get(child(dbref,"Waste_level/wet")).then(snapshot=>{
+  metal = snapshot.val();
+  console.log(snapshot.val());
+
+  });
+ }
+
+function updateProgressBar(progressBar, value) {
+  value = Math.round(value);
+  progressBar.querySelector(".fill1").style.width = `${value}%`;
+  progressBar.querySelector(".text1").textContent = `${value}%`;
+}
+function updateProgressBar2(progressBar, value) {
+  value = Math.round(value);
+  progressBar.querySelector(".fill2").style.width = `${value}%`;
+  progressBar.querySelector(".text2").textContent = `${value}%`;
+}
+function updateProgressBar3(progressBar, value) {
+  value = Math.round(value);
+  progressBar.querySelector(".fill3").style.width = `${value}%`;
+  progressBar.querySelector(".text3").textContent = `${value}%`;
+}
+
+
+let ProgressBar1 = document.querySelector(".bin1");
+let ProgressBar2 = document.querySelector(".bin2");
+let ProgressBar3 = document.querySelector(".bin3");
+
+/* Example */
+updateProgressBar(ProgressBar1, 50);
+updateProgressBar2(ProgressBar2 ,50);
+updateProgressBar3(ProgressBar3 ,60);
+let btn =document.getElementById("button");
+btn.addEventListener('click',Update);
+function Update()
+{
+SelectData();
+setTimeout(function(){
+  updateProgressBar(ProgressBar1, dry);
+updateProgressBar2(ProgressBar2 ,wet);
+updateProgressBar3(ProgressBar3 ,metal);
+ },1000)
+
+}
+function setTime()
+{
+var d = new Date();
+var Hour = d.getHours();
+var minute = d.getMinutes();
+var second = d.getSeconds();
+document.getElementById("clock").textContent =String(Hour)+':'+String(minute)+':'+String(second);}
+setInterval(function() {
+  
+    setTime();
+}, 1000); 
+
+</script>
+
+<style>
+#bin{
+  color: white;
+  font-size:30px;
+ display: block;
+ font-weight:700%;
+ padding:20px;
+ margin:20px;
+ text-align:center;
+}
+#heading{
+color: white;
+font-size:25px;
+font-weight:700%;
+text-align:center;
+}
+html{
+  background: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
+@media (max-width: 929px) {
+#heading{
+  font-size:20px;
+}
+.bin1 ,.bin2,.bin3{
+  position: relative;
+  width: 300px;
+  height: 60px;
+  background: #9cbab4;
+  border-radius: 15px;
+  overflow: hidden;
+}
+}
+#centerbin1{
+  display: flex;
+  justify-content: center;
+}
+.bin1 ,.bin2,.bin3{
+  position: relative;
+  width: 500px;
+  height: 100px;
+  background: #9cbab4;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.fill1 ,.fill2,.fill3{
+  width: 0%;
+  height: 100%;
+  background: #ffcc5e;
+  transition: all 1.2s;
+}
+
+.text1,.text2 ,.text3{
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+  font: bold 14px "Quicksand", sans-serif;
+  color: #ffffff;
+}
+#clock{
+  font-size:30px;
+  color: white;
+  display: block;
+  text-align:center;
+  padding:40px;
+}
+#centerbutton{
+  display: flex;
+  justify-content: center;
+}
+#button{
+color: white;
+background:#4CAF50;
+padding:20px;
+font-size:20px;
+border:solid #4CAF50 5px;
+border-radius: 20px;
+}
+#button:focus{
+  background-color: blue;
+  opacity:0.9;
+  border:solid blue 5px;
+border-radius: 20px;
+}
+</style>
+
+</html>
