@@ -169,8 +169,47 @@ html{
   -o-background-size: cover;
   background-size: cover;
 
+}#bin{
+  color: white;
+  font-size:30px;
+ display: block;
+ font-weight:700%;
+ padding:20px;
+ margin:20px;
+ text-align:center;
 }
-  .bin1 ,.bin2,.bin3{
+#heading{
+color: white;
+font-size:25px;
+font-weight:700%;
+text-align:center;
+}
+html{
+  background: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
+@media (max-width: 929px) {
+#heading{
+  font-size:20px;
+}
+.bin1 ,.bin2,.bin3{
+  position: relative;
+  width: 300px;
+  height: 60px;
+  background: #9cbab4;
+  border-radius: 15px;
+  overflow: hidden;
+}
+}
+#centerbin1{
+  display: flex;
+  justify-content: center;
+}
+.bin1 ,.bin2,.bin3{
   position: relative;
   width: 500px;
   height: 100px;
@@ -178,20 +217,6 @@ html{
   border-radius: 15px;
   overflow: hidden;
 }
-  #button{
-color: white;
-background:#4CAF50;
-padding:20px;
-font-size:20px;
-border:solid #4CAF50 5px;
-border-radius: 20px;
-} 
-}
-#centerbin1{
-  display: flex;
-  justify-content: center;
-}
-
 
 .fill1 ,.fill2,.fill3{
   width: 0%;
@@ -219,14 +244,19 @@ border-radius: 20px;
   display: flex;
   justify-content: center;
 }
-
+#button{
+color: white;
+background:#4CAF50;
+padding:20px;
+font-size:20px;
+border:solid #4CAF50 5px;
+border-radius: 20px;
+}
 #button:active{
   background-color: blue;
   opacity:0.9;
   border:solid blue 5px;
 border-radius: 20px;
-}
-
-</style>
+}tyle>
 
 </html>
