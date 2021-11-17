@@ -28,7 +28,7 @@
           
         </div>
       
-          <button id = "btn" onclick = "submit1()">Submit</button>
+          <button id = "btn" onclick = "">Submit</button>
       </form>
     </div>
     </div>
@@ -194,8 +194,12 @@ body{
 
 var name = [];
 var phone = [];
-
-
+document.onreadystatechange = () => {
+  if (document.readyState === 'complete') {
+    // document ready
+    document.getElementById("btn").addEventListener("click", submit1());
+  }
+};
 function submit1()
 {
  phone= document.getElementById('phone').value;
@@ -204,6 +208,7 @@ function submit1()
  console.log(name);
 alert("Contact added succesfully");
 }
+
 
 </script>
 </html>
