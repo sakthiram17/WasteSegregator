@@ -188,34 +188,11 @@ body{
   opacity: 0.6;
 }
 </style>
-<script type = "module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp} from "https://www.gstatic.com/firebasejs/9.4.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-analytics.js";
-  import {getDatabase,ref,set,child,update,remove,get} from "https://www.gstatic.com/firebasejs/9.4.1/firebase-database.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyABZWgEKhRePr_i93ZfLhWz_Z4Vuip-l1A",
-    authDomain: "navi-f72ae.firebaseapp.com",
-    databaseURL: "https://navi-f72ae-default-rtdb.firebaseio.com",
-    projectId: "navi-f72ae",
-    storageBucket: "navi-f72ae.appspot.com",
-    messagingSenderId: "299558249471",
-    appId: "1:299558249471:web:1f75ccfd84e9c7a6767dca",
-    measurementId: "G-CKRNN70C1C"
-  };
+<script type>
 
   // Initialize Firebase
-// Initialize Firebase
-var id = 0;
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+
 var name = [];
-const db = getDatabase();
 var phone = [];
 
 function SelectData()
@@ -235,12 +212,6 @@ function submit1()
  name = document.getElementById('name').value;
  console.log(phone);
  console.log(name);
-set(ref(db,"EmergencyContacts/ "+id),{
-  ContactName:name,
-  contactNumber:phone
-});
-set(ref(db,"number"),{
-  Number:id
 });
 alert("Contact added succesfully");
 }
