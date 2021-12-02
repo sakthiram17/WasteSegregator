@@ -81,6 +81,7 @@ var metal = 0;
   get(child(dbref,"Waste_level/Dry")).then(snapshot=>{
   dry = snapshot.val();
   console.log(dry);
+  
    
   });
    get(child(dbref,"Waste_level/Metal")).then(snapshot=>{
@@ -91,6 +92,9 @@ wet = snapshot.val();
     get(child(dbref,"Waste_level/wet")).then(snapshot=>{
   metal = snapshot.val();
   console.log(snapshot.val());
+  updateProgressBar(ProgressBar1, dry);
+updateProgressBar2(ProgressBar2 ,wet);
+updateProgressBar3(ProgressBar3 ,metal);
 
   });
  }
@@ -125,11 +129,6 @@ btn.addEventListener('click',Update);
 function Update()
 {
 SelectData();
-setTimeout(function(){
-  updateProgressBar(ProgressBar1, dry);
-updateProgressBar2(ProgressBar2 ,wet);
-updateProgressBar3(ProgressBar3 ,metal);
- },1000)
 
 }
 function setTime()
@@ -147,95 +146,123 @@ setInterval(function() {
 </script>
 
 <style>
-#bin{
+  #bin{
+    color: white;
+    font-size:30px;
+   display: block;
+   font-weight:700%;
+   padding:20px;
+   margin:20px;
+   text-align:center;
+  }
+  #heading{
   color: white;
-  font-size:30px;
- display: block;
- font-weight:700%;
- padding:20px;
- margin:20px;
- text-align:center;
-}
-#heading{
-color: white;
-font-size:25px;
-font-weight:700%;
-text-align:center;
-}
-html{
-  background: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-
-}
-@media (max-width: 929px) {
-#heading{
-  font-size:20px;
-}
-.bin1 ,.bin2,.bin3{
-  position: relative;
-  width: 300px;
-  height: 60px;
-  background: #9cbab4;
-  border-radius: 15px;
-  overflow: hidden;
-}
-}
-#centerbin1{
-  display: flex;
-  justify-content: center;
-}
-.bin1 ,.bin2,.bin3{
-  position: relative;
-  width: 500px;
-  height: 100px;
-  background: #9cbab4;
-  border-radius: 15px;
-  overflow: hidden;
-}
-
-.fill1 ,.fill2,.fill3{
-  width: 0%;
-  height: 100%;
-  background: #ffcc5e;
-  transition: all 1.2s;
-}
-
-.text1,.text2 ,.text3{
-  position: absolute;
-  top: 50%;
-  right: 5px;
-  transform: translateY(-50%);
-  font: bold 14px "Quicksand", sans-serif;
-  color: #ffffff;
-}
-#clock{
-  font-size:30px;
-  color: white;
-  display: block;
+  font-size:25px;
+  font-weight:700%;
   text-align:center;
-  padding:40px;
-}
-#centerbutton{
-  display: flex;
-  justify-content: center;
-}
-#button{
-color: white;
-background:#4CAF50;
-padding:20px;
-font-size:20px;
-border:solid #4CAF50 5px;
-border-radius: 20px;
-}
-#button:focus{
-  background-color: blue;
-  opacity:0.9;
-  border:solid blue 5px;
-border-radius: 20px;
-}
-</style>
+  }
+  html{
+    background: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  
+  }#bin{
+    color: white;
+    font-size:30px;
+   display: block;
+   font-weight:700%;
+   padding:20px;
+   margin:20px;
+   text-align:center;
+  }
+  #heading{
+  color: white;
+  font-size:25px;
+  font-weight:700%;
+  text-align:center;
+  }
+  html{
+    background: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  
+  }
 
+  #centerbin1{
+    display: flex;
+    justify-content: center;
+  }
+  .bin1 ,.bin2,.bin3{
+    position: relative;
+    width: 500px;
+    height: 100px;
+    background: #9cbab4;
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  
+  .fill1 ,.fill2,.fill3{
+    width: 0%;
+    height: 100%;
+    background: #ffcc5e;
+    transition: all 1.2s;
+  }
+  
+  .text1,.text2 ,.text3{
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    font: bold 14px "Quicksand", sans-serif;
+    color: #ffffff;
+  }
+  #clock{
+    font-size:30px;
+    color: white;
+    display: block;
+    text-align:center;
+    padding:40px;
+  }
+  #centerbutton{
+    display: flex;
+    justify-content: center;
+  }
+  #button{
+  color: white;
+  background:#4CAF50;
+  padding:20px;
+  font-size:20px;
+  border:solid #4CAF50 5px;
+  border-radius: 20px;
+  }
+  #button:active{
+    background-color: blue;
+    opacity:0.9;
+    border:solid blue 5px;
+  border-radius: 20px;
+  }
+  @media (max-width: 929px) {
+  #heading{
+    font-size:15px;
+  }
+  .bin1 ,.bin2,.bin3{
+    position: relative;
+    width: 350px;
+    height: 70px;
+    background: #9cbab4;
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  #button{
+  padding:14px;
+  font-size:14px;
+  border:solid #4CAF50 3px;
+  border-radius: 14px;
+  }
+  }
+    </style>
 </html>
