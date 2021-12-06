@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -6,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+ 
 
  
     <title>Smart Waste Segregator</title>
@@ -17,10 +16,11 @@
 
 
 
-<div id = "heading">
-<h1> Smart Waste Segregator </h1>
-</div>
+
 <div class = "box">
+  <div id = "heading">
+    <h1> Smart Waste Segregator </h1>
+    </div>
 <div class = "head" id = "bin">Dry Bin </div>
 <div id = "centerbin1">
    <div class="bin1">
@@ -165,19 +165,19 @@ setInterval(function() {
    text-align:center;
   }
   #heading{
-  color:white;
+  color:black;
   margin-bottom: 30px;
   display: block;
-  font-size:25px;
+  font-size:20px;
   font-weight:700%;
   text-align:center;
+  border:solid 2px #75044a;
   padding: 4px;
-  background-color: #75044a;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-
+  border-radius: 20px;
+  box-shadow: 2px 3px #75044a;
   }
   html{
-   background-color:whitesmoke;
+    background: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -260,7 +260,7 @@ setInterval(function() {
   }
   @media (max-width: 929px) {
   #heading{
-    font-size:15px;
+    font-size:14px;
   }
   .bin1 ,.bin2,.bin3{
     position: relative;
