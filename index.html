@@ -87,7 +87,7 @@ var metal = 0;
    
   });
    get(child(dbref,"Waste_level/Metal")).then(snapshot=>{
-wet = snapshot.val();
+metal = snapshot.val();
   console.log(snapshot.val());
      let ProgressBar1 = document.querySelector(".bin1");
 let ProgressBar2 = document.querySelector(".bin2");
@@ -97,7 +97,7 @@ let ProgressBar2 = document.querySelector(".bin2");
 
   });
     get(child(dbref,"Waste_level/wet")).then(snapshot=>{
-  metal = snapshot.val();
+  wet = snapshot.val();
   console.log(snapshot.val());
       let ProgressBar1 = document.querySelector(".bin1");
 let ProgressBar2 = document.querySelector(".bin2");
