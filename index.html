@@ -89,13 +89,14 @@ var metal = 0;
    get(child(dbref,"Waste_level/Metal")).then(snapshot=>{
 wet = snapshot.val();
   console.log(snapshot.val());
+     updateProgressBar2(ProgressBar2 ,wet);
+
 
   });
     get(child(dbref,"Waste_level/wet")).then(snapshot=>{
   metal = snapshot.val();
   console.log(snapshot.val());
   updateProgressBar(ProgressBar1, dry);
-updateProgressBar2(ProgressBar2 ,wet);
 
 
   });
