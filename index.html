@@ -110,14 +110,14 @@ let ProgressBar2 = document.querySelector(".bin2");
 
 function updateProgressBar(progressBar, value) {
   value = Math.round(value);
-  progressBar.querySelector(".fill1").style.width = `${value}%`;
-  progressBar.querySelector(".text1").textContent = `${value}%`;
+  progressBar.querySelector(".fill1").style.width = `${(value/8)*100}%`;
+  progressBar.querySelector(".text1").textContent = `${(value/8)*100}%`;
   document.querySelector(".text5").innerHTML = `Waste Level : ${value}Cms`;
 }
 function updateProgressBar2(progressBar, value) {
   value = Math.round(value);
-  progressBar.querySelector(".fill2").style.width = `${value}%`;
-  progressBar.querySelector(".text2").textContent = `${value}%`;
+  progressBar.querySelector(".fill2").style.width = `${(value/8)*100}%`;
+  progressBar.querySelector(".text2").textContent = `${(value/8)*100}%%`;
   document.querySelector(".text4").innerHTML = `Waste Level : ${value}Cms`;
 
 }
