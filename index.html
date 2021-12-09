@@ -117,7 +117,7 @@ function updateProgressBar(progressBar, value) {
 function updateProgressBar2(progressBar, value) {
   value = Math.round(value);
   progressBar.querySelector(".fill2").style.width = `${(value/8)*100}%`;
-  progressBar.querySelector(".text2").textContent = `${(value/8)*100}%%`;
+  progressBar.querySelector(".text2").textContent = `${(value/8)*100}%`;
   document.querySelector(".text4").innerHTML = `Waste Level : ${value}Cms`;
 
 }
@@ -128,8 +128,8 @@ let ProgressBar2 = document.querySelector(".bin2");
 
 
 /* Example */
-updateProgressBar(ProgressBar1, 50);
-updateProgressBar2(ProgressBar2 ,50);
+updateProgressBar(ProgressBar1, 5);
+updateProgressBar2(ProgressBar2 ,5);
 
 let btn =document.getElementById("button");
 btn.addEventListener('click',selectData);
